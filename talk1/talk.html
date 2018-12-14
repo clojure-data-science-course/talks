@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Clojure for data scientists 1</title>
+<meta name="author" content="(daslu)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/moon.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'http://cdn.jsdelivr.net/reveal.js/3.0.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Clojure for data scientists 1</h1><h2 class="date">2018-11-25 Sun, 2018-11-28 Wed</h2>
+</section>
+
+<section>
+<section id="slide-org8d3f440">
+<h2 id="org8d3f440"></h2>
+
+</section>
+</section>
+<section>
+<section id="slide-org15c8fd5">
+<h2 id="org15c8fd5">clojure</h2>
+<div class="outline-text-2" id="text-org15c8fd5">
+</div>
+</section>
+<section id="slide-org2bda2ee">
+<h3 id="org2bda2ee">What is it?</h3>
+<ul>
+<li>functional</li>
+
+<li>Lisp</li>
+
+<li>hosted</li>
+
+<li>simple concurrency</li>
+
+<li>dynamic</li>
+
+<li>simple</li>
+
+<li>code as data</li>
+
+</ul>
+<p>
+<a href="https://en.wikipedia.org/wiki/Code_as_data">https://en.wikipedia.org/wiki/Code_as_data</a>
+</p>
+
+</section>
+<section id="slide-orgb07b254">
+<h3 id="orgb07b254">basic types</h3>
+
+</section>
+<section id="slide-org74b3c31">
+<h3 id="org74b3c31">data structures</h3>
+
+</section>
+<section id="slide-org47b5a8b">
+<h3 id="org47b5a8b">functions</h3>
+
+</section>
+<section id="slide-orgead2cd4">
+<h3 id="orgead2cd4">macros</h3>
+
+</section>
+<section id="slide-orgb33ecd1">
+<h3 id="orgb33ecd1">special forms</h3>
+<p>
+<a href="https://clojure.org/reference/special_forms">https://clojure.org/reference/special_forms</a>
+</p>
+
+</section>
+<section id="slide-org00deb98">
+<h3 id="org00deb98">error messages</h3>
+
+</section>
+<section id="slide-orgf07231a">
+<h3 id="orgf07231a">community</h3>
+<p>
+<a href="https://clojureverse.org/">https://clojureverse.org/</a>
+</p>
+
+<p>
+<a href="https://clojurians.zulipchat.com/">https://clojurians.zulipchat.com/</a>
+</p>
+
+<p>
+<a href="https://www.reddit.com/r/Clojure/">https://www.reddit.com/r/Clojure/</a>
+</p>
+
+<p>
+<a href="http://clojurians.net/">http://clojurians.net/</a>
+</p>
+
+<p>
+<a href="https://gitter.im/metasoarous/clojure-datascience">https://gitter.im/metasoarous/clojure-datascience</a>
+</p>
+
+<p>
+<a href="https://clojure.org/community/resources">https://clojure.org/community/resources</a>
+</p>
+
+<p>
+<a href="https://www.clojuriststogether.org">https://www.clojuriststogether.org</a>
+</p>
+
+</section>
+<section id="slide-orga1382ba">
+<h3 id="orga1382ba"></h3>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org09fd432">
+<h2 id="org09fd432">What is joy?</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-orgc56c3f9">
+<h2 id="orgc56c3f9"></h2>
+<div class="outline-text-2" id="text-orgc56c3f9">
+</div>
+</section>
+<section id="slide-org9db9087">
+<h3 id="org9db9087"></h3>
+<p>
+"The development of language is part of the development of the personality, 
+</p>
+
+<p>
+for words are the natural means of expressing thoughts
+</p>
+
+<p>
+and establishing understanding between people."
+</p>
+
+<p>
+&#x2013; Maria Montessori
+</p>
+
+</section>
+<section id="slide-org04777d4">
+<h3 id="org04777d4"></h3>
+<p>
+"The only language men ever speak perfectly
+</p>
+
+<p>
+is the one they learn in babyhood,
+</p>
+
+<p>
+when no one can teach them anything!" 
+</p>
+
+<p>
+&#x2013; Maria Montessori
+</p>
+
+
+<div class="figure">
+<p><img src="./Maria_Montessori1913.jpg" alt="Maria_Montessori1913.jpg" />
+</p>
+</div>
+
+</section>
+<section id="slide-org4e2371d">
+<h3 id="org4e2371d"></h3>
+
+<div class="figure">
+<p><img src="./yogthos-quote.jpg" alt="yogthos-quote.jpg" />
+</p>
+</div>
+
+</section>
+<section id="slide-orgb93fe0b">
+<h3 id="orgb93fe0b"></h3>
+<p>
+"When a thorn enters the sole of your foot, you have to get another thorn.
+</p>
+
+<p>
+You then remove the first thorn with the help of the second.
+</p>
+
+<p>
+Afterwards you throwaway both.
+</p>
+
+
+<div class="figure">
+<p><img src="./220px-Indischer_Maler_von_1780_001.jpg" alt="220px-Indischer_Maler_von_1780_001.jpg" />
+</p>
+</div>
+
+</section>
+<section id="slide-org2c8aa8d">
+<h3 id="org2c8aa8d"></h3>
+<p>
+Likewise,
+</p>
+
+<p>
+after removing the thorn of ignorance with the help of the thorn of knowledge,
+</p>
+
+<p>
+you should throwaway the thorns of both knowledge and ignorance."
+</p>
+
+<p>
+&#x2013; The Gospel of Sri Ramakrihna, translated by Swami Nikhilananda, 1942
+</p>
+
+
+<div class="figure">
+<p><img src="./ramakrishna.jpg" alt="ramakrishna.jpg" />
+</p>
+</div>
+
+</section>
+<section id="slide-org98239af">
+<h3 id="org98239af"></h3>
+<p>
+“The only outwardly recognizable sign of the onset of the sensitive period for language is the child’s smile”
+</p>
+
+<p>
+&#x2013; Maria Montessori, "The Absorbent Mind"
+</p>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgb483dd6">
+<h2 id="orgb483dd6">About the course</h2>
+<div class="outline-text-2" id="text-orgb483dd6">
+</div>
+</section>
+<section id="slide-org2cba950">
+<h3 id="org2cba950">goals</h3>
+
+</section>
+<section id="slide-org0dd3c20">
+<h3 id="org0dd3c20">time</h3>
+
+</section>
+<section id="slide-orge5e38f2">
+<h3 id="orge5e38f2">plan</h3>
+<p>
+<a href="https://github.com/clojure-data-science-course/course-information">https://github.com/clojure-data-science-course/course-information</a>
+</p>
+
+</section>
+<section id="slide-orgaa937a5">
+<h3 id="orgaa937a5">keep in touch</h3>
+<ul>
+<li><a href="https://groups.google.com/forum/#!forum/clojure-data-science-course-tlv">mail group</a></li>
+<li><a href="https://clojurians.zulipchat.com/">Zulip</a></li>
+<li><a href="http://clojure-data-science-course.github.io/">website</a></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org412cce2">
+<h2 id="org412cce2">demo</h2>
+<div class="outline-text-2" id="text-org412cce2">
+</div>
+</section>
+<section id="slide-orgac12fc8">
+<h3 id="orgac12fc8"></h3>
+<p>
+"I mentioned 'lightweight data modeling'. 
+</p>
+
+<p>
+At that point, I often say something like, 'Do you know JSON?'.
+</p>
+
+<p>
+After getting acknowledgment, I continue with,
+</p>
+
+</section>
+<section id="slide-org7cc6fba">
+<h3 id="org7cc6fba"></h3>
+<p>
+'Well, imagine if you could represent all your data as JSON, 
+</p>
+
+<p>
+rather than a complex hierarchy of objects and methods,
+</p>
+
+<p>
+and the language was designed around
+</p>
+
+<p>
+making that kind of data super-easy to work with.'
+</p>
+
+
+</section>
+<section id="slide-org2853af7">
+<h3 id="org2853af7"></h3>
+<p>
+&#x2026; It gives a hint of what it feels like to work in Clojure and think in Clojure."
+</p>
+
+<p>
+&#x2013; Mark Engleberg, "Clojure vs Scala", Tuesday, December 24, 2013
+</p>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org3b54842">
+<h2 id="org3b54842">overview</h2>
+<div class="outline-text-2" id="text-org3b54842">
+</div>
+</section>
+<section id="slide-orgce08186">
+<h3 id="orgce08186">numeric computing</h3>
+<p>
+<a href="https://github.com/clojure-numerics">https://github.com/clojure-numerics</a>
+</p>
+
+<p>
+<a href="https://uncomplicate.org/">https://uncomplicate.org/</a>
+</p>
+
+
+</section>
+<section id="slide-orgd87871b">
+<h3 id="orgd87871b">data frames</h3>
+<p>
+<a href="http://incanter.org/">http://incanter.org/</a>
+</p>
+
+<p>
+<a href="https://github.com/mikera/core.matrix/blob/develop/src/main/clojure/clojure/core/matrix/dataset.cljc">https://github.com/mikera/core.matrix/blob/develop/src/main/clojure/clojure/core/matrix/dataset.cljc</a>
+</p>
+
+<p>
+<a href="https://github.com/cailuno/denisovan">https://github.com/cailuno/denisovan</a>
+</p>
+
+<p>
+<a href="https://github.com/ghl3/dataframe">https://github.com/ghl3/dataframe</a>
+</p>
+
+<p>
+<a href="https://github.com/aria42/koala">https://github.com/aria42/koala</a>
+</p>
+
+<p>
+<a href="https://github.com/ribelo/wombat">https://github.com/ribelo/wombat</a>
+</p>
+
+<p>
+<a href="https://github.com/whilo/denisovan">https://github.com/whilo/denisovan</a>
+</p>
+
+<p>
+<a href="https://github.com/cardillo/joinery">https://github.com/cardillo/joinery</a>
+</p>
+
+<p>
+<a href="https://jtablesaw.github.io/tablesaw/gettingstarted">https://jtablesaw.github.io/tablesaw/gettingstarted</a>
+</p>
+
+<p>
+<a href="http://www.renjin.org/">http://www.renjin.org/</a>
+</p>
+
+
+</section>
+<section id="slide-orgea9f925">
+<h3 id="orgea9f925">probability and statistics</h3>
+<p>
+<a href="https://github.com/MastodonC/kixi.stats">https://github.com/MastodonC/kixi.stats</a>
+</p>
+
+<p>
+<a href="https://github.com/michaellindon/distributions">https://github.com/michaellindon/distributions</a>
+</p>
+
+</section>
+<section id="slide-orgdf21065">
+<h3 id="orgdf21065">probabilistic programming / Bayesian statistics</h3>
+<p>
+<a href="https://github.com/uncomplicate/bayadera">https://github.com/uncomplicate/bayadera</a>
+</p>
+
+<p>
+<a href="https://probprog.github.io/anglican/">https://probprog.github.io/anglican/</a>
+</p>
+
+</section>
+<section id="slide-org7c987fd">
+<h3 id="org7c987fd">machine learning</h3>
+<p>
+<a href="https://github.com/joshuaeckroth/clj-ml/">https://github.com/joshuaeckroth/clj-ml/</a>
+</p>
+
+<p>
+<a href="https://gitlab.com/alanmarazzi/clj-boost">https://gitlab.com/alanmarazzi/clj-boost</a>
+</p>
+
+<p>
+<a href="https://github.com/haifengl/smile">https://github.com/haifengl/smile</a>
+</p>
+
+</section>
+<section id="slide-orgdec9e40">
+<h3 id="orgdec9e40">deep learning</h3>
+<p>
+<a href="https://github.com/originrose/cortex">https://github.com/originrose/cortex</a>
+</p>
+
+<p>
+<a href="https://github.com/hswick/jutsu.ai">https://github.com/hswick/jutsu.ai</a>
+</p>
+
+<p>
+<a href="https://github.com/aria42/flare">https://github.com/aria42/flare</a>
+</p>
+
+<p>
+<a href="https://github.com/gigasquid/clojure-mxnet">https://github.com/gigasquid/clojure-mxnet</a>
+</p>
+
+</section>
+<section id="slide-org9a95520">
+<h3 id="org9a95520">genetic programming</h3>
+<p>
+<a href="https://github.com/lspector/Clojush">https://github.com/lspector/Clojush</a>
+</p>
+
+</section>
+<section id="slide-org259452c">
+<h3 id="org259452c">R interop</h3>
+<p>
+<a href="https://github.com/behrica/rojure">https://github.com/behrica/rojure</a>
+</p>
+
+<p>
+<a href="https://github.com/JonyEpsilon/gg4clj">https://github.com/JonyEpsilon/gg4clj</a>
+</p>
+
+<p>
+<a href="http://www.renjin.org/">http://www.renjin.org/</a>
+</p>
+
+</section>
+<section id="slide-org944cdf3">
+<h3 id="org944cdf3">visualizations</h3>
+<p>
+<a href="http://thi.ng/">http://thi.ng/</a>
+</p>
+
+<p>
+<a href="https://github.com/thi-ng/geom/blob/master/geom-viz/src/index.or">https://github.com/thi-ng/geom/blob/master/geom-viz/src/index.or</a>
+</p>
+
+<p>
+<a href="https://github.com/hswick/jutsu">https://github.com/hswick/jutsu</a>
+</p>
+
+<p>
+<a href="https://github.com/metasoarous/oz">https://github.com/metasoarous/oz</a>
+</p>
+
+<p>
+<a href="https://github.com/jsa-aerial/saite">https://github.com/jsa-aerial/saite</a>
+</p>
+
+<p>
+<a href="https://github.com/jsa-aerial/hanami">https://github.com/jsa-aerial/hanami</a>
+</p>
+
+<p>
+geom-viz/src/index.org
+</p>
+
+
+
+</section>
+<section id="slide-orgcb2d031">
+<h3 id="orgcb2d031">notebooks</h3>
+<p>
+<a href="http://gorilla-repl.org/">http://gorilla-repl.org/</a>
+</p>
+
+<p>
+<a href="https://github.com/clojupyter/lein-jupyter">https://github.com/clojupyter/lein-jupyter</a>
+</p>
+
+<p>
+<a href="https://github.com/clojupyter/clojupyter">https://github.com/clojupyter/clojupyter</a>
+</p>
+
+
+</section>
+<section id="slide-orgf68b538">
+<h3 id="orgf68b538">other</h3>
+<p>
+<a href="https://github.com/sbelak/huri">https://github.com/sbelak/huri</a>
+</p>
+
+<p>
+<a href="https://github.com/clojure-numerics">https://github.com/clojure-numerics</a>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgd624971">
+<h2 id="orgd624971">homework</h2>
+<div class="outline-text-2" id="text-orgd624971">
+</div>
+</section>
+<section id="slide-org8d485d5">
+<h3 id="org8d485d5">play</h3>
+
+</section>
+<section id="slide-org8ab657b">
+<h3 id="org8ab657b">read</h3>
+<p>
+<a href="https://www.braveclojure.com/clojure-for-the-brave-and-true/">https://www.braveclojure.com/clojure-for-the-brave-and-true/</a>
+</p>
+
+<p>
+<a href="http://viewer.gorilla-repl.org/view.html?source=github&amp;user=lspector&amp;repo=clojinc&amp;path=worksheet.clj">http://viewer.gorilla-repl.org/view.html?source=github&amp;user=lspector&amp;repo=clojinc&amp;path=worksheet.clj</a>
+</p>
+
+<p>
+<a href="https://github.com/drewnoff/openintro-gorilla-incanter">https://github.com/drewnoff/openintro-gorilla-incanter</a>
+</p>
+
+</section>
+<section id="slide-orgb87bd7e">
+<h3 id="orgb87bd7e">ask, answer</h3>
+
+</section>
+<section id="slide-orgc39609b">
+<h3 id="orgc39609b">try to extend the demo</h3>
+
+</section>
+<section id="slide-org3818c4b">
+<h3 id="org3818c4b">personal project</h3>
+<ul>
+<li>study a library</li>
+
+<li>study a dataset</li>
+
+<li>prepare a blogpost / do a talk</li>
+
+<li>write a library</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgde4d0df">
+<h2 id="orgde4d0df"></h2>
+
+<div class="figure">
+<p><img src="./joy.jpg" alt="joy.jpg" />
+</p>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="http://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/head.min.js"></script>
+<script src="http://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>

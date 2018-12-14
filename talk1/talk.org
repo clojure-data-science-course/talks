@@ -1,0 +1,291 @@
+#+TITLE:       Clojure for data scientists 1
+#+DATE:        2018-11-25 Sun, 2018-11-28 Wed
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+#+OPTIONS: num:nil tex:t toc:nil author:nil timestamp:nil
+#+LATEX_HEADER: \usepackage{mathtools,accents}
+#+ATTR_REVEAL: :frag roll-in
+
+* 
+
+* clojure
+
+** What is it?
+
+- functional
+
+- Lisp
+
+- hosted
+
+- simple concurrency
+
+- dynamic
+
+- simple
+
+- code as data
+https://en.wikipedia.org/wiki/Code_as_data
+
+** basic types
+
+** data structures
+
+** functions
+
+** macros
+
+** special forms
+https://clojure.org/reference/special_forms
+
+** error messages
+
+** community
+
+https://clojureverse.org/
+
+https://clojurians.zulipchat.com/
+
+https://www.reddit.com/r/Clojure/
+
+http://clojurians.net/
+
+https://gitter.im/metasoarous/clojure-datascience
+
+https://clojure.org/community/resources
+
+https://www.clojuriststogether.org
+
+** 
+
+
+* What is joy?
+
+* 
+
+** 
+
+"The development of language is part of the development of the personality, 
+
+for words are the natural means of expressing thoughts
+
+and establishing understanding between people."
+
+-- Maria Montessori
+
+** 
+
+"The only language men ever speak perfectly
+
+is the one they learn in babyhood,
+
+when no one can teach them anything!" 
+
+-- Maria Montessori
+
+[[./Maria_Montessori1913.jpg]]
+
+** 
+[[./yogthos-quote.jpg]]
+
+** 
+
+"When a thorn enters the sole of your foot, you have to get another thorn.
+
+You then remove the first thorn with the help of the second.
+
+Afterwards you throwaway both.
+
+[[./220px-Indischer_Maler_von_1780_001.jpg]]
+
+** 
+Likewise,
+
+after removing the thorn of ignorance with the help of the thorn of knowledge,
+
+you should throwaway the thorns of both knowledge and ignorance."
+
+-- The Gospel of Sri Ramakrihna, translated by Swami Nikhilananda, 1942
+
+[[./ramakrishna.jpg]]
+
+** 
+“The only outwardly recognizable sign of the onset of the sensitive period for language is the child’s smile”
+
+-- Maria Montessori, "The Absorbent Mind"
+
+
+
+* About the course
+
+** goals
+   
+** time
+
+** plan
+
+[[https://github.com/clojure-data-science-course/course-information]]
+
+** keep in touch
+
+- [[https://groups.google.com/forum/#!forum/clojure-data-science-course-tlv][mail group]]
+- [[https://clojurians.zulipchat.com/][Zulip]]
+- [[http://clojure-data-science-course.github.io/][website]]
+
+* demo
+
+** 
+
+"I mentioned 'lightweight data modeling'. 
+
+At that point, I often say something like, 'Do you know JSON?'.
+
+After getting acknowledgment, I continue with,
+
+** 
+'Well, imagine if you could represent all your data as JSON, 
+
+rather than a complex hierarchy of objects and methods,
+
+and the language was designed around
+
+making that kind of data super-easy to work with.'
+
+
+** 
+... It gives a hint of what it feels like to work in Clojure and think in Clojure."
+
+-- Mark Engleberg, "Clojure vs Scala", Tuesday, December 24, 2013
+
+
+* overview
+
+** numeric computing
+
+https://github.com/clojure-numerics
+
+https://uncomplicate.org/
+
+
+** data frames
+
+http://incanter.org/
+
+https://github.com/mikera/core.matrix/blob/develop/src/main/clojure/clojure/core/matrix/dataset.cljc
+
+https://github.com/cailuno/denisovan
+
+https://github.com/ghl3/dataframe
+
+https://github.com/aria42/koala
+
+https://github.com/ribelo/wombat
+
+https://github.com/whilo/denisovan
+
+https://github.com/cardillo/joinery
+
+https://jtablesaw.github.io/tablesaw/gettingstarted
+
+http://www.renjin.org/
+
+
+** probability and statistics
+https://github.com/MastodonC/kixi.stats
+
+https://github.com/michaellindon/distributions
+
+** probabilistic programming / Bayesian statistics
+https://github.com/uncomplicate/bayadera
+
+https://probprog.github.io/anglican/
+
+** machine learning
+https://github.com/joshuaeckroth/clj-ml/
+
+https://gitlab.com/alanmarazzi/clj-boost
+
+https://github.com/haifengl/smile
+
+** deep learning
+https://github.com/originrose/cortex
+
+https://github.com/hswick/jutsu.ai
+
+https://github.com/aria42/flare
+
+https://github.com/gigasquid/clojure-mxnet
+
+** genetic programming
+
+https://github.com/lspector/Clojush
+
+** R interop
+
+https://github.com/behrica/rojure
+
+https://github.com/JonyEpsilon/gg4clj
+
+http://www.renjin.org/
+
+** visualizations
+
+http://thi.ng/
+
+https://github.com/thi-ng/geom/blob/master/geom-viz/src/index.or
+
+https://github.com/hswick/jutsu
+
+https://github.com/metasoarous/oz
+
+https://github.com/jsa-aerial/saite
+
+https://github.com/jsa-aerial/hanami
+
+geom-viz/src/index.org
+
+
+
+** notebooks
+
+http://gorilla-repl.org/
+   
+https://github.com/clojupyter/lein-jupyter
+
+https://github.com/clojupyter/clojupyter
+
+
+** other
+https://github.com/sbelak/huri
+
+https://github.com/clojure-numerics
+
+* homework
+
+** play
+
+** read
+
+https://www.braveclojure.com/clojure-for-the-brave-and-true/
+
+http://viewer.gorilla-repl.org/view.html?source=github&user=lspector&repo=clojinc&path=worksheet.clj
+
+https://github.com/drewnoff/openintro-gorilla-incanter
+
+** ask, answer
+
+** try to extend the demo
+
+** personal project
+
+- study a library
+
+- study a dataset
+
+- prepare a blogpost / do a talk
+
+- write a library
+
+* 
+
+[[./joy.jpg]]
+  
